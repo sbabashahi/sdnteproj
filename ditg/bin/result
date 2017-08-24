@@ -1,0 +1,17 @@
+#!/bin/bash
+##
+##By Saeed
+##
+date=$(date +%Y-%m-%d.%H:%M:%S)
+name=${1:-$date}
+echo "$name"
+for i in {1..9}
+do
+        printf "\n\n######HOST $i######\n\n\n" >> result_$name
+        printf "\n\n######HOST $i######\n\n\n" >> total_result_$name
+	ITGDec rec_log$i | sed -n -e '/TOTAL/,$p' >> total_result_$name
+	ITGDec rec_log$i >> result_$name
+	$(rm -f rec_log$i)
+	echo "Log $i Done!"
+done
+
