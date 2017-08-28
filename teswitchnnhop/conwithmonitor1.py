@@ -101,7 +101,7 @@ alter_paths = { 's1': {'s2': { 's8': { 'path1': {'path': ['s2', 's9', 's8'], 'co
                                's9': { 'path1': {'path': ['s2', 's9'], 'cost': 0}, 'path2': {'path': ['s2' , 's4', 's6', 's8', 's9'], 'cost': 0}},
                                's3': { 'path1': {'path': ['s2', 's4', 's3'], 'cost': 0}, 'path2': {'path': ['s2', 's3'], 'cost': 0}}},
                        's3': { 's2': { 'path1': {'path': ['s3', 's2'], 'cost': 0}, 'path2': {'path': ['s3', 's4', 's2'], 'cost': 0}},
-                               's8': { 'path1': {'path': ['s3', 's2', 's9', 's8'], 'cost': 0}, 'path2': {'path': ['s3' ,'s5', 's7', 'r8'], 'cost': 0},
+                               's8': { 'path1': {'path': ['s3', 's2', 's9', 's8'], 'cost': 0}, 'path2': {'path': ['s3' ,'s5', 's7', 's8'], 'cost': 0},
                                        'path3': {'path': ['s3', 's4', 's6', 's8'], 'cost': 0}},
                                's9': { 'path1': {'path': ['s3', 's2', 's9'], 'cost': 0}, 'path2': {'path': ['s3', 's5', 's7', 's9'], 'cost': 0}}},
                        's8': { 's2': { 'path1': {'path': ['s8', 's9', 's2'], 'cost': 0}, 'path2': {'path': ['s8', 's6', 's4', 's2'], 'cost': 0},
@@ -113,78 +113,114 @@ alter_paths = { 's1': {'s2': { 's8': { 'path1': {'path': ['s2', 's9', 's8'], 'co
                                's3': { 'path1': {'path': ['s9', 's2', 's3'], 'cost': 0}, 'path2': {'path': ['s9' ,'s7', 's5', 's3'], 'cost': 0}},
                                's8': { 'path1': {'path': ['s9', 's8'], 'cost': 0}, 'path2': {'path': ['s9', 's7', 's8'], 'cost': 0}}}
                       },
-                's2': {'s1': { 'path1': {'path': ['s2', 's3', 's1'], 'cost': 0}, 'path2': {'path': ['s2', 's9', 's1'], 'cost': 0},
-                               'path3': {'path': ['s2', 's9', 's8', 's1'], 'cost': 0}, 'path4': {'path': ['s2', 's4', 's3', 's1'], 'cost': 0}},
-                       's4': { 'path1': {'path': ['s2', 's3', 's4'], 'cost': 0}, 'path2': {'path': ['s2' ,'s3', 's5', 's4'], 'cost': 0},
-                               'path3': {'path': ['s2', 's1', 's3', 's4'], 'cost': 0}},
-                       's9': { 'path1': {'path': ['s2', 's1', 's9'], 'cost': 0}, 'path2': {'path': ['s2' ,'s1', 's8', 's9'], 'cost': 0},
-                               'path3': {'path': ['s2', 's3', 's1', 's9'], 'cost': 0}},
-                       's3': { 'path1': {'path': ['s2', 's4', 's3'], 'cost': 0}, 'path2': {'path': ['s2', 's1', 's3'], 'cost': 0},
-                               'path3': {'path': ['s2', 's4', 's5', 's3'], 'cost': 0}, 'path4': {'path': ['s2', 's9', 's1', 's3'], 'cost': 0}},
+                's2': {'s1': { 's3': { 'path1': {'path': ['s1', 's3'], 'cost': 0}, 'path2': {'path': ['s1' , 's8', 's6', 's4', 's3'], 'cost': 0},
+                                       'path3': {'path': ['s1', 's9', 's7', 's5', 's3'], 'cost': 0}},
+                               's4': { 'path1': {'path': ['s1', 's3', 's4'], 'cost': 0}, 'path2': {'path': ['s1' , 's3', 's5', 's4'], 'cost': 0},                                       'path3': {'path': ['s1', 's8', 's6', 's4'], 'cost': 0}},
+                               's9': { 'path1': {'path': ['s1', 's9'], 'cost': 0}, 'path2': {'path': ['s1', 's8', 's9'], 'cost': 0}}},
+                       's4': { 's3': { 'path1': {'path': ['s4', 's3'], 'cost': 0}, 'path2': {'path': ['s4' , 's6', 's8', 's1', 's3'], 'cost': 0}},
+                               's1': { 'path1': {'path': ['s4', 's3', 's1'], 'cost': 0}, 'path2': {'path': ['s4' , 's6', 's8', 's1'], 'cost': 0}},
+                               's9': { 'path1': {'path': ['s4', 's3', 's1', 's9'], 'cost': 0}, 'path2': {'path': ['s4', 's6', 's8', 's9' ], 'cost': 0}}},
+                       's9': { 's3': { 'path1': {'path': ['s9', 's1', 's3'], 'cost': 0}, 'path2': {'path': ['s9' , 's7', 's5', 's3'], 'cost': 0}},
+                               's4': { 'path1': {'path': ['s9', 's1', 's3', 's4'], 'cost': 0}, 'path2': {'path': ['s9' , 's8', 's6', 's4'], 'cost': 0}},
+                               's1': { 'path1': {'path': ['s9', 's1'], 'cost': 0}, 'path2': {'path': ['s9', 's8', 's1'], 'cost': 0}}},
+                       's3': { 's1': { 'path1': {'path': ['s3', 's1'], 'cost': 0}, 'path2': {'path': ['s3' , 's4', 's6', 's8', 's1'], 'cost': 0},
+                                       'path3': {'path': ['s3', 's5', 's7', 's9', 's1'], 'cost': 0}},
+                               's4': { 'path1': {'path': ['s3', 's4'], 'cost': 0}, 'path2': {'path': ['s3' , 's1', 's8', 's6', 's4'], 'cost': 0}},
+                               's9': { 'path1': {'path': ['s3', 's1', 's9'], 'cost': 0}, 'path2': {'path': ['s3', 's5', 's7', 's9'], 'cost': 0}}},
                       },
-                's3': {'s2': { 'path1': {'path': ['s3', 's1', 's2'], 'cost': 0}, 'path2': {'path': ['s3', 's4', 's2'], 'cost': 0},
-                               'path3': {'path': ['s3', 's1', 's9', 's2'], 'cost': 0}, 'path4': {'path': ['s3', 's5', 's4', 's2'], 'cost': 0}},
-                       's1': { 'path1': {'path': ['s3', 's2', 's1'], 'cost': 0}, 'path2': {'path': ['s3' ,'s2', 's9', 's1'], 'cost': 0},
-                               'path3': {'path': ['s3', 's4', 's2', 's1'], 'cost': 0}},
-                       's5': { 'path1': {'path': ['s3', 's4', 's5'], 'cost': 0}, 'path2': {'path': ['s3' ,'s2', 's4', 's5'], 'cost': 0},
-                               'path3': {'path': ['s3', 's4', 's6', 's5'], 'cost': 0}},
-                       's4': { 'path1': {'path': ['s3', 's2', 's4'], 'cost': 0}, 'path2': {'path': ['s3', 's5', 's4'], 'cost': 0},
-                               'path3': {'path': ['s3', 's1', 's2', 's4'], 'cost': 0}, 'path4': {'path': ['s3', 's5', 's6', 's4'], 'cost': 0}},
+                's3': {'s2': { 's1': {'path1': {'path': ['s2','s1'], 'cost': 0}, 'path2': {'path': ['s2' , 's9', 's1'], 'cost': 0},
+                                      'path3': {'path': ['s2', 's4', 's6', 's8', 's1'], 'cost': 0}},
+                               's5': {'path1': {'path': ['s2','s4', 's5'], 'cost': 0}, 'path2': {'path': ['s2' , 's9', 's7', 's5'], 'cost': 0}},
+                               's4': {'path1': {'path': ['s2','s4'], 'cost': 0}, 'path2': {'path': ['s2' , 's9', 's7', 's5', 's4'], 'cost': 0}}},
+                       's1': { 's2': {'path1': {'path': ['s1','s2'], 'cost': 0}, 'path2': {'path': ['s1' , 's9', 's2'], 'cost': 0},
+                                      'path3': {'path': ['s1', 's8', 's6', 's4', 's2'], 'cost': 0}},
+                               's5': {'path1': {'path': ['s1', 's2', 's4', 's5'], 'cost': 0}, 'path2': {'path': ['s1' , 's8', 's6', 's5'], 'cost': 0}},
+                               's4': {'path1': {'path': ['s1', 's2', 's4'], 'cost': 0}, 'path2': {'path': ['s1' , 's8', 's6', 's4'], 'cost': 0}}},
+                       's5': { 's2': {'path1': {'path': ['s5', 's4', 's2'], 'cost': 0}, 'path2': {'path': ['s5' , 's7', 's9', 's2'], 'cost': 0}},
+                               's1': {'path1': {'path': ['s5', 's4', 's2', 's1'], 'cost': 0}, 'path2': {'path': ['s5' , 's6', 's8', 's1'], 'cost': 0}},
+                               's4': {'path1': {'path': ['s5', 's4'], 'cost': 0}, 'path2': {'path': ['s5' , 's7', 's9', 's2', 's4'], 'cost': 0}}},
+                       's4': { 's2': {'path1': {'path': ['s4', 's2'], 'cost': 0}, 'path2': {'path': ['s4' , 's5', 's7', 's9', 's2'], 'cost': 0}},
+                               's1': {'path1': {'path': ['s4', 's2', 's1'], 'cost': 0}, 'path2': {'path': ['s4' , 's6', 's8', 's1'], 'cost': 0}},
+                               's5': {'path1': {'path': ['s4', 's5'], 'cost': 0}, 'path2': {'path': ['s4' , 's2', 's9', 's7', 's5'], 'cost': 0}}},
                       },
-                's4': {'s3': { 'path1': {'path': ['s4', 's2', 's3'], 'cost': 0}, 'path2': {'path': ['s4', 's5', 's3'], 'cost': 0},
-                               'path3': {'path': ['s4', 's2', 's1', 's3'], 'cost': 0}, 'path4': {'path': ['s4', 's6', 's5', 's3'], 'cost': 0}},
-                       's2': { 'path1': {'path': ['s4', 's3', 's2'], 'cost': 0}, 'path2': {'path': ['s4' ,'s5', 's3', 's2'], 'cost': 0},
-                               'path3': {'path': ['s4', 's3', 's1', 's2'], 'cost': 0}},
-                       's6': { 'path1': {'path': ['s4', 's5', 's6'], 'cost': 0}, 'path2': {'path': ['s4' ,'s3', 's5', 's6'], 'cost': 0},
-                               'path3': {'path': ['s4', 's5', 's7', 's6'], 'cost': 0}},
-                       's5': { 'path1': {'path': ['s4', 's3', 's5'], 'cost': 0}, 'path2': {'path': ['s4', 's6', 's5'], 'cost': 0},
-                               'path3': {'path': ['s4', 's2', 's3', 's5'], 'cost': 0}, 'path4': {'path': ['s4', 's6', 's7', 's5'], 'cost': 0}},
+                's4': {'s3': { 's2': {'path1': {'path': ['s3', 's2'], 'cost': 0}, 'path2': {'path': ['s3' , 's5', 's7', 's9', 's2'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s3', 's5' ,'s6'], 'cost': 0}, 'path2': {'path': ['s3' , 's1', 's8', 's6'], 'cost': 0}}, 
+                               's5': {'path1': {'path': ['s3', 's5'], 'cost': 0}, 'path2': {'path': ['s3' , 's1', 's8', 's6', 's5'], 'cost': 0}}},
+                       's2': { 's3': {'path1': {'path': ['s2', 's3'], 'cost': 0}, 'path2': {'path': ['s2' , 's9', 's7', 's5', 's3'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s2', 's3', 's5' ,'s6'], 'cost': 0}, 'path2': {'path': ['s2', 's1', 's8', 's6'], 'cost': 0}}, 
+                               's5': {'path1': {'path': ['s2', 's3', 's5'], 'cost': 0}, 'path2': {'path': ['s2', 's1', 's8', 's6', 's5'], 'cost': 0}}},
+                       's6': { 's3': {'path1': {'path': ['s6', 's5', 's3'], 'cost': 0}, 'path2': {'path': ['s6' , 's8', 's1', 's3'], 'cost': 0}}, 
+                               's2': {'path1': {'path': ['s6', 's5', 's3' ,'s2'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's1', 's2'], 'cost': 0}}, 
+                               's5': {'path1': {'path': ['s6', 's5'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's1', 's3', 's5'], 'cost': 0}}},
+                       's5': { 's3': {'path1': {'path': ['s5', 's3'], 'cost': 0}, 'path2': {'path': ['s5' , 's7', 's9', 's2', 's3'], 'cost': 0}}, 
+                               's2': {'path1': {'path': ['s5', 's3' ,'s2'], 'cost': 0}, 'path2': {'path': ['s5', 's7', 's9', 's2'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s5', 's6'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's8', 's6'], 'cost': 0}}},
                       },
-                's5': {'s4': { 'path1': {'path': ['s5', 's3', 's4'], 'cost': 0}, 'path2': {'path': ['s5', 's6', 's4'], 'cost': 0},
-                               'path3': {'path': ['s5', 's3', 's2', 's4'], 'cost': 0}, 'path4': {'path': ['s5', 's7', 's6', 's4'], 'cost': 0}},
-                       's3': { 'path1': {'path': ['s5', 's4', 's3'], 'cost': 0}, 'path2': {'path': ['s5' ,'s4', 's2', 's3'], 'cost': 0},
-                               'path3': {'path': ['s5', 's6', 's4', 's3'], 'cost': 0}},
-                       's7': { 'path1': {'path': ['s5', 's6', 's7'], 'cost': 0}, 'path2': {'path': ['s5' ,'s6', 's8', 's7'], 'cost': 0},
-                               'path3': {'path': ['s5', 's4', 's6', 's7'], 'cost': 0}},
-                       's6': { 'path1': {'path': ['s5', 's4', 's6'], 'cost': 0}, 'path2': {'path': ['s5', 's7', 's6'], 'cost': 0},
-                               'path3': {'path': ['s5', 's3', 's4', 's6'], 'cost': 0}, 'path4': {'path': ['s5', 's7', 's8', 's6'], 'cost': 0}},
+                's5': {'s4': { 's3': {'path1': {'path': ['s4', 's3'], 'cost': 0}, 'path2': {'path': ['s4', 's6', 's8', 's1', 's3'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s4', 's6', 's7'], 'cost': 0}, 'path2': {'path': ['s4', 's2', 's9', 's7'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s4', 's6'], 'cost': 0}, 'path2': {'path': ['s4', 's2', 's9', 's7', 's6'], 'cost': 0}}},
+                       's3': { 's4': {'path1': {'path': ['s3', 's4'], 'cost': 0}, 'path2': {'path': ['s3', 's1', 's8', 's6', 's4'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s3', 's4', 's6', 's7'], 'cost': 0}, 'path2': {'path': ['s3', 's1', 's8', 's7'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s3', 's4', 's6'], 'cost': 0}, 'path2': {'path': ['s3', 's1', 's8', 's6'], 'cost': 0}}},
+                       's7': { 's4': {'path1': {'path': ['s7', 's6', 's4'], 'cost': 0}, 'path2': {'path': ['s7', 's9', 's2', 's4'], 'cost': 0}}, 
+                               's3': {'path1': {'path': ['s7', 's6', 's4', 's3'], 'cost': 0}, 'path2': {'path': ['s7', 's8', 's1', 's3'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s7', 's6'], 'cost': 0}, 'path2': {'path': ['s7', 's9', 's2', 's4', 's6'], 'cost': 0}}},
+                       's6': { 's4': {'path1': {'path': ['s6', 's4'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's1', 's3', 's4'], 'cost': 0}}, 
+                               's3': {'path1': {'path': ['s6', 's4', 's3'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's1', 's3'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s6', 's7'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's9', 's7'], 'cost': 0}}},
                       },
-                's6': {'s5': { 'path1': {'path': ['s6', 's4', 's5'], 'cost': 0}, 'path2': {'path': ['s6', 's7', 's5'], 'cost': 0},
-                               'path3': {'path': ['s6', 's4', 's3', 's5'], 'cost': 0}, 'path4': {'path': ['s6', 's8', 's7', 's5'], 'cost': 0}},
-                       's4': { 'path1': {'path': ['s6', 's5', 's4'], 'cost': 0}, 'path2': {'path': ['s6' ,'s5', 's3', 's4'], 'cost': 0},
-                               'path3': {'path': ['s6', 's7', 's5', 's4'], 'cost': 0}},
-                       's8': { 'path1': {'path': ['s6', 's7', 's8'], 'cost': 0}, 'path2': {'path': ['s6' ,'s5', 's7', 's8'], 'cost': 0},
-                               'path3': {'path': ['s6', 's7', 's9', 's8'], 'cost': 0}},
-                       's7': { 'path1': {'path': ['s6', 's5', 's7'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's7'], 'cost': 0},
-                               'path3': {'path': ['s6', 's8', 's9', 's7'], 'cost': 0}, 'path4': {'path': ['s6', 's4', 's5', 's7'], 'cost': 0}},
+                's6': {'s5': { 's4': {'path1': {'path': ['s5', 's4'], 'cost': 0}, 'path2': {'path': ['s5', 's7', 's9', 's2', 's4'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s5', 's7', 's8'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's8'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s5', 's7'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's8', 's7'], 'cost': 0}}},
+                       's4': { 's5': {'path1': {'path': ['s4', 's5'], 'cost': 0}, 'path2': {'path': ['s4', 's2', 's9', 's7', 's5'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s4', 's5', 's7', 's8'], 'cost': 0}, 'path2': {'path': ['s4', 's2', 's9', 's8'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s4', 's5', 's7'], 'cost': 0}, 'path2': {'path': ['s4', 's2', 's9', 's7'], 'cost': 0}}},
+                       's8': { 's5': {'path1': {'path': ['s8', 's7', 's5'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's5'], 'cost': 0}}, 
+                               's4': {'path1': {'path': ['s8', 's7', 's5','s4'], 'cost': 0}, 'path2': {'path': ['s8', 's9', 's2', 's4'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s8', 's7'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's5', 's7'], 'cost': 0}}},
+                       's7': { 's5': {'path1': {'path': ['s7', 's5'], 'cost': 0}, 'path2': {'path': ['s7', 's9', 's2', 's3', 's5'], 'cost': 0}}, 
+                               's4': {'path1': {'path': ['s8', 's7', 's5', 's4'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's4'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s7', 's8'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's1', 's8'], 'cost': 0}}},
                       },
-                's7': {'s6': { 'path1': {'path': ['s7', 's5', 's6'], 'cost': 0}, 'path2': {'path': ['s7', 's8', 's6'], 'cost': 0},
-                               'path3': {'path': ['s7', 's9', 's8', 's6'], 'cost': 0}, 'path4': {'path': ['s7', 's5', 's4', 's6'], 'cost': 0}},
-                       's5': { 'path1': {'path': ['s7', 's6', 's5'], 'cost': 0}, 'path2': {'path': ['s7' ,'s8', 's6', 's5'], 'cost': 0},
-                               'path3': {'path': ['s7', 's6', 's4', 's5'], 'cost': 0}},
-                       's9': { 'path1': {'path': ['s7', 's8', 's9'], 'cost': 0}, 'path2': {'path': ['s7' ,'s6', 's8', 's9'], 'cost': 0},
-                               'path3': {'path': ['s7', 's8', 's1', 's9'], 'cost': 0}},
-                       's8': { 'path1': {'path': ['s7', 's6', 's8'], 'cost': 0}, 'path2': {'path': ['s7', 's9', 's8'], 'cost': 0},
-                               'path3': {'path': ['s7', 's5', 's6', 's8'], 'cost': 0}, 'path4': {'path': ['s7', 's9', 's1', 's8'], 'cost': 0}},
+                's7': {'s6': { 's5': {'path1': {'path': ['s6', 's5'], 'cost': 0}, 'path2': {'path': ['s6', 's8', 's1', 's3', 's5'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s6', 's8', 's9'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's9'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s6', 's8'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's9', 's8'], 'cost': 0}}},
+                       's5': { 's6': {'path1': {'path': ['s5', 's6'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's8', 's6'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s5', 's6', 's8', 's9'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's9'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s5', 's6', 's8'], 'cost': 0}, 'path2': {'path': ['s5', 's3', 's1', 's8'], 'cost': 0}}},
+                       's9': { 's6': {'path1': {'path': ['s9', 's8', 's6'], 'cost': 0}, 'path2': {'path': ['s9', 's2', 's4', 's6'], 'cost': 0}}, 
+                               's5': {'path1': {'path': ['s9', 's8', 's6', 's5'], 'cost': 0}, 'path2': {'path': ['s9', 's1', 's3', 's5'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s9', 's8'], 'cost': 0}, 'path2': {'path': ['s9', 's2', 's4', 's6', 's8'], 'cost': 0}}},
+                       's8': { 's6': {'path1': {'path': ['s8', 's6'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's5', 's6'], 'cost': 0}}, 
+                               's5': {'path1': {'path': ['s8', 's6', 's5'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's5'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s8', 's9'], 'cost': 0}, 'path2': {'path': ['s8', 's6', 's4', 's2', 's9'], 'cost': 0}}},
                       },
-                's8': {'s7': { 'path1': {'path': ['s8', 's6', 's7'], 'cost': 0}, 'path2': {'path': ['s8', 's9', 's7'], 'cost': 0},
-                               'path3': {'path': ['s8', 's6', 's5', 's7'], 'cost': 0}, 'path4': {'path': ['s8', 's1', 's9', 's7'], 'cost': 0}},
-                       's6': { 'path1': {'path': ['s8', 's7', 's6'], 'cost': 0}, 'path2': {'path': ['s8' ,'s7', 's5', 's6'], 'cost': 0},
-                               'path3': {'path': ['s8', 's9', 's7', 's6'], 'cost': 0}},
-                       's1': { 'path1': {'path': ['s8', 's9', 's1'], 'cost': 0}, 'path2': {'path': ['s8' ,'s7', 's9', 's1'], 'cost': 0},
-                               'path3': {'path': ['s8', 's9', 's2', 's1'], 'cost': 0}},
-                       's9': { 'path1': {'path': ['s8', 's1', 's9'], 'cost': 0}, 'path2': {'path': ['s8', 's7', 's9'], 'cost': 0},
-                               'path3': {'path': ['s8', 's1', 's2', 's9'], 'cost': 0}, 'path4': {'path': ['s8', 's6', 's7', 's9'], 'cost': 0}},
+                's8': {'s7': { 's6': {'path1': {'path': ['s7', 's6'], 'cost': 0}, 'path2': {'path': ['s7', 's9', 's2', 's4', 's6'], 'cost': 0}}, 
+                               's1': {'path1': {'path': ['s7', 's9', 's1'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's1'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s7', 's9'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's1', 's9'], 'cost': 0}}},
+                       's6': { 's7': {'path1': {'path': ['s6', 's7'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's9', 's7'], 'cost': 0}}, 
+                               's1': {'path1': {'path': ['s6', 's7', 's9', 's1'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's1'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s6', 's7', 's9'], 'cost': 0}, 'path2': {'path': ['s6', 's4', 's2', 's9'], 'cost': 0}}},
+                       's1': { 's7': {'path1': {'path': ['s1', 's9', 's7'], 'cost': 0}, 'path2': {'path': ['s1', 's3', 's5', 's7'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s1', 's9', 's7', 's6'], 'cost': 0}, 'path2': {'path': ['s1', 's2', 's4', 's6'], 'cost': 0}}, 
+                               's9': {'path1': {'path': ['s1', 's9'], 'cost': 0}, 'path2': {'path': ['s1', 's3', 's5', 's7', 's9'], 'cost': 0}}},
+                       's9': { 's7': {'path1': {'path': ['s9', 's7'], 'cost': 0}, 'path2': {'path': ['s9', 's2', 's4', 's6', 's7'], 'cost': 0}}, 
+                               's6': {'path1': {'path': ['s9', 's7', 's6'], 'cost': 0}, 'path2': {'path': ['s9', 's2', 's4', 's6'], 'cost': 0}}, 
+                               's1': {'path1': {'path': ['s9', 's1'], 'cost': 0}, 'path2': {'path': ['s9', 's7', 's5', 's3', 's1'], 'cost': 0}}},
                       },
-                's9': {'s1': { 'path1': {'path': ['s9', 's2', 's1'], 'cost': 0}, 'path2': {'path': ['s9', 's8', 's1'], 'cost': 0},
-                               'path3': {'path': ['s9', 's2', 's3', 's1'], 'cost': 0}, 'path4': {'path': ['s9', 's7', 's8', 's1'], 'cost': 0}},
-                       's2': { 'path1': {'path': ['s9', 's1', 's2'], 'cost': 0}, 'path2': {'path': ['s9' ,'s1', 's3', 's2'], 'cost': 0},
-                               'path3': {'path': ['s9', 's8', 's1', 's2'], 'cost': 0}},
-                       's7': { 'path1': {'path': ['s9', 's8', 's7'], 'cost': 0}, 'path2': {'path': ['s9' ,'s8', 's6', 's7'], 'cost': 0},
-                               'path3': {'path': ['s9', 's1', 's8', 's7'], 'cost': 0}},
-                       's8': { 'path1': {'path': ['s9', 's1', 's8'], 'cost': 0}, 'path2': {'path': ['s9', 's7', 's8'], 'cost': 0},
-                               'path3': {'path': ['s9', 's2', 's1', 's8'], 'cost': 0}, 'path4': {'path': ['s9', 's7', 's6', 's8'], 'cost': 0}},
-                      },
+                's9': {'s1': { 's2': {'path1': {'path': ['s1', 's2'], 'cost': 0}, 'path2': {'path': ['s1', 's8', 's6', 's4', 's2'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s1', 's8', 's7'], 'cost': 0}, 'path2': {'path': ['s1', 's3', 's5', 's7'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s1', 's8'], 'cost': 0}, 'path2': {'path': ['s1', 's3', 's5', 's7', 's8'], 'cost': 0}}},
+                       's2': { 's1': {'path1': {'path': ['s2', 's1'], 'cost': 0}, 'path2': {'path': ['s2', 's4', 's6', 's8', 's1'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s2', 's1', 's8', 's7'], 'cost': 0}, 'path2': {'path': ['s2', 's4', 's6', 's7'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s8', 's1'], 'cost': 0}, 'path2': {'path': ['s8', 's7', 's5', 's3', 's1'], 'cost': 0}}},
+                       's7': { 's1': {'path1': {'path': ['s7', 's8', 's1'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's1'], 'cost': 0}}, 
+                               's2': {'path1': {'path': ['s7', 's8', 's1', 's2'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's2'], 'cost': 0}}, 
+                               's8': {'path1': {'path': ['s7', 's8'], 'cost': 0}, 'path2': {'path': ['s7', 's5', 's3', 's1', 's8'], 'cost': 0}}},
+                       's8': { 's1': {'path1': {'path': ['s8', 's1'], 'cost': 0}, 'path2': {'path': ['s8', 's6', 's4', 's2', 's1'], 'cost': 0}}, 
+                               's2': {'path1': {'path': ['s8', 's1', 's2'], 'cost': 0}, 'path2': {'path': ['s8', 's6', 's4', 's2'], 'cost': 0}}, 
+                               's7': {'path1': {'path': ['s8', 's7'], 'cost': 0}, 'path2': {'path': ['s8', 's1', 's3', 's5', 's7'], 'cost': 0}}},
+                      }
               }
 
 ####
@@ -370,12 +406,15 @@ class SimpleSwitch13(app_manager.RyuApp):
 
 
     def _monitor(self):		#request for statical information every 10 sec
-        round=0
+        round = 0
 	while True:
-	    round+=1
             for dp in self.switchdic.values():
 		self._request_stats(dp)
-            hub.sleep(10)
+            if round == 0:
+	        round = 1
+                hub.sleep(10)
+            else:
+                hub.sleep(5)
     
     def rebuildnet(self):
 	for sw in self.switchdic:
@@ -383,11 +422,9 @@ class SimpleSwitch13(app_manager.RyuApp):
             parser = self.switchdic[sw].ofproto_parser	#parser for processing this protocol message
             ###add flow
 	    switchinpath = [(index, row.index(sw)) for index, row in enumerate(self.path) if sw in row]	#all the paths that this switch is there
-            from pprint import pprint; pprint(self.path)
 	    for i in range(len(switchinpath)):
                 srchost = '00:00:00:00:00:0'+self.path[switchinpath[i][0]][0][1]	#srouce host of this route
                 dsthost = '00:00:00:00:00:0'+self.path[switchinpath[i][0]][-1][1]	#destination host of this route
-                print(srchost,dsthost, sw)
                 nexteth = int(vertexs[self.path[switchinpath[i][0]][(switchinpath[i][1])]][self.path[switchinpath[i][0]][(switchinpath[i][1]) + 1]][3])	#which port must send the packet
                 #ipdst = '10.0.0.'+self.path[switchinpath[i][0]][-1][1]	#destination host ip address
                 actions = [parser.OFPActionOutput(nexteth)]
@@ -422,18 +459,34 @@ class SimpleSwitch13(app_manager.RyuApp):
         #self.logger.info('datapath         in-port           eth-dst           out-port   packets  bytes')
         #self.logger.info('---------------- ' '----------------- ----------------- ' '--------   -----    ------')
 	for stat in sorted([flow for flow in body if flow.priority==1], key=lambda flow: (flow.match['eth_src'],flow.match['eth_dst'])):
-    	    #self.logger.info('%016x %8s %17s %8d %8d', ev.msg.datapath.id, stat.match['eth_src'], stat.match['eth_dst'], stat.packet_count, stat.byte_count)
-            switch_traffic_now['s' + str(ev.msg.datapath.id)] += stat.byte_count
-            if flow_stat_time == 9:
-               for sw in switch_traffic_now:
-                   switch_traffic[sw] = switch_traffic_now[sw] - switch_traffic_back[sw]
-                   switch_traffic_back[sw] = switch_traffic_now[sw]
-               flow_stat_time = 0
-               switch = self.max_switch()
-               print('switch')
-               print('flow done')
-            #print(ev.msg.datapath.id, stat.byte_count)
+	    #self.logger.info('%016x %8s %17s %8d %8d', ev.msg.datapath.id, stat.match['eth_src'], stat.match['eth_dst'], stat.packet_count, stat.byte_count)
+	    switch_traffic_now['s' + str(ev.msg.datapath.id)] += stat.byte_count
+	if flow_stat_time >= 9:
+	    flow_stat_time = 0
+	    for sw in switch_traffic_now:
+	       switch_traffic[sw] = switch_traffic_now[sw] - switch_traffic_back[sw]
+	       switch_traffic_back[sw] = switch_traffic_now[sw]
+	    switch = self.max_switch()
+	    self.check_links(switch)
+	    self.add_alter_links(switch)
+	    print('removed switch is',switch) 
+	    self.rebuildnet()
+	    self.rmswitch(switch)
+	    #from pprint import pprint; pprint(self.path) 
+	    paths_to_change = []
+	       
 
+    def rmswitch(self, switch):
+	#temp_list = [path for path in self.path if switch not in path]
+	#self.path = temp_list
+	datapath = self.switchdic[switch]
+	ofproto = datapath.ofproto  #OpenFlow version protocol use$
+	parser = datapath.ofproto_parser
+	priority = 1
+	actions = []
+	match = parser.OFPMatch()
+    	port = ofproto.OFPP_ANY
+	self.rem_flow(datapath, priority, match, actions, port = 0)
 
     def max_switch(self):
         sw_max = 0
@@ -467,97 +520,66 @@ class SimpleSwitch13(app_manager.RyuApp):
             port_stat_time = 0
             self.max_link()
             print('stat done')
-    #        self.check_links()
-    #        self.add_alter_links()
-    #        self.rebuildnet()
-    #        paths_to_change = []
-    #        #from pprint import pprint; pprint(self.edgesnow)
-
-    #def install_path(self, src, dst, path):
-    #    #install path that must be replaced
-    #    srchost = '00:00:00:00:00:0' + src[-1]
-    #    dsthost = '00:00:00:00:00:0' + dst[-1]
-    #    for item in range(len(path)-1):
-    #        switch = path[item]
-    #        datapath = self.switchdic[switch]
-    #        ofproto = datapath.ofproto  #OpenFlow version protocol use$
-    #        parser = datapath.ofproto_parser
-    #        nexteth = int(vertexs[path[item]][path[item+1]][-1])
-    #        actions = [parser.OFPActionOutput(nexteth)]
-    #        match = parser.OFPMatch(eth_src=srchost, eth_dst=dsthost)
-    #        self.add_flow(datapath, 1, match, actions)
 
 
-    #def add_alter_links(self):
-    #    #for path that need to changed remove link and call install path
-    #    for switch in self.switchdic:
-    #        datapath = self.switchdic[switch]
-    #        ofproto = datapath.ofproto  #OpenFlow version protocol use$
-    #        parser = datapath.ofproto_parser
-    #        for path in paths_to_change:
-    #            if path[2] == switch:	#if path is for current switch
-    #                srchost = '00:00:00:00:00:0'+path[0][-1]
-    #                dsthost = '00:00:00:00:00:0'+path[1][-1]
-    #                x = (int(path[0][-1]) - 1) * 10 + int(path[1][-1])	#find the flow that match this path
-    #                index = self.path[x].index(path[2])
-    #                del self.path[x][index]	#delete head and tail
-    #                del self.path[x][index]
-    #                for item in path[4]:	#insert new path
-    #                    self.path[x].insert(index, item)
-    #                    index = index + 1
-    #                while len(self.path[x]) != len(set(self.path[x])):	#check if path has loop
-    #                   find = 0
-    #                   for item in range(1, len(self.path[x])-1):
-    #                       for item2 in range(item+1, len(self.path[x])-1):
-    #                           if self.path[x][item] == self.path[x][item2]:
-    #                               self.path[x] = self.path[x][:item] + self.path[x][item2:]	#delete finded loop
-    #                               find = 1
-    #                               if find:
-    #                                  break
-    #                       if find:
-    #                           find = 0
-    #                           break
+    def add_alter_links(self, switch):
+        #for path that need to changed remove link and call install path
+        #for switch in self.switchdic:
+        #    datapath = self.switchdic[switch]
+        #    ofproto = datapath.ofproto  #OpenFlow version protocol use$
+        #    parser = datapath.ofproto_parser
+            for path in paths_to_change:
+        #        if path[2] == switch:	#if path is for current switch
+                    srchost = '00:00:00:00:00:0'+path[0][-1]
+                    dsthost = '00:00:00:00:00:0'+path[1][-1]
+                    x = (int(path[0][-1]) - 1) * 10 + int(path[1][-1])	#find the flow that match this path
+                    index = self.path[x].index(path[2])
+                    del self.path[x][index]	#delete head and tail
+                    del self.path[x][index]
+                    del self.path[x][index]
+                    for item in path[4]:	#insert new path
+                        self.path[x].insert(index, item)
+                        index = index + 1
+                    while len(self.path[x]) != len(set(self.path[x])):	#check if path has loop
+                       find = 0
+                       for item in range(1, len(self.path[x])-1):
+                           for item2 in range(item+1, len(self.path[x])-1):
+                               if self.path[x][item] == self.path[x][item2]:
+                                   self.path[x] = self.path[x][:item] + self.path[x][item2:]	#delete finded loop
+                                   find = 1
+                                   if find:
+                                      break
+                           if find:
+                               find = 0
+                               break
 
 
-    #def rebuild_link(self, s1, s2, cost):
-    #    #create a list of paths that need to change 
-    #    min_cost = cost
-    #    for path in range(1,len(alter_paths[s1][s2])+1):
-    #        if min_cost > alter_paths[s1][s2]['path'+str(path)]['cost']*hop_cost[len(alter_paths[s1][s2]['path'+str(path)]['path'])]:	#TODO need to check len
-    #             min_path = alter_paths[s1][s2]['path'+str(path)]['path']
-    #             min_cost = alter_paths[s1][s2]['path'+str(path)]['cost']
-    #    if min_cost < cost:	#if path need to change
-    #        for path in self.path:
-    #            if len(path):
-    #                for switch in range(1, len(path)-2):	#find paths that use this link
-    #                    if path[switch] == s1 and path[switch+1] == s2:
-    #                        paths_to_change.append([path[0], path[-1], s1, s2, min_path]) #add path to paths_to_change
-    #                        break
-    #        #need_to_change = need_to_cahnge + [(h1,h2,s1,s2,min_path)]
-
-
-    #def check_links(self):
-    #    #check if any of link has traffic more than thereshold
-    #    for switch in range(1,10):
-    #        thisswitch='s'+str(switch)
-    #        for item in self.edgesnow[thisswitch]:
-    #            if item[0] == 's':
-    #                if self.thsh < self.edgesnow[thisswitch][item]:
-    #                    self.rebuild_link(thisswitch, item, self.edgesnow[thisswitch][item])
-
+    def check_links(self,switch):
+        #check if any of link has traffic more than thereshold
+        for path in self.path:
+            if len(path) and switch in path:
+                if path[1] != switch and path[-2] != switch:
+                   item = path.index(switch)
+                   min_cost = alter_paths[switch][path[item-1]][path[item+1]]['path1']['cost']
+                   min_path = alter_paths[switch][path[item-1]][path[item+1]]['path1']['path']
+                   for spath in range(2, len(alter_paths[switch][path[item-1]][path[item+1]])+1):
+                       if min_cost > alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['cost']:
+			   min_cost = alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['cost']
+			   min_path = alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['path']
+                   paths_to_change.append([path[0], path[-1], path[item-1], path[item+1], min_path]) 
 
     def max_link(self):
         #find the max cost in every alter_paths path
         for switchm in alter_paths:
             for switch1 in alter_paths[switchm]:
-		    for switch2 in alter_paths[switch1]:
-			for spath in range(1,len(alter_paths[switch1][switch2])+1):
-			    alter_paths[switch1][switch2]['path'+str(spath)]['cost'] = 0
-			    for path in range(len(alter_paths[switch1][switch2]['path'+str(spath)]['path'])-1):
+		    for switch2 in alter_paths[switchm][switch1]:
+			for spath in range(1,len(alter_paths[switchm][switch1][switch2])+1):
+			    alter_paths[switchm][switch1][switch2]['path'+str(spath)]['cost'] = 0
+			    for path in range(len(alter_paths[switchm][switch1][switch2]['path'+str(spath)]['path'])-1):
 	    #                    #print(path)
 				#print(switch1, switch2, alter_paths[switch1][switch2]['path'+str(spath)]['path'][path], alter_paths[switch1][switch2]['path'+str(spath)]['path'][path+1])
-				sl1 = alter_paths[switch1][switch2]['path'+str(spath)]['path'][path]
-				sl2 = alter_paths[switch1][switch2]['path'+str(spath)]['path'][path+1]
+				sl1 = alter_paths[switchm][switch1][switch2]['path'+str(spath)]['path'][path]
+				sl2 = alter_paths[switchm][switch1][switch2]['path'+str(spath)]['path'][path+1]
 				#print(self.edgesnow[sl0][sl2])
-				if alter_paths[switch1][switch2]['path'+str(spath)]['cost'] < self.edgesnow[sl1][sl2]:
-				    alter_paths[switch1][switch2]['path'+str(spath)]['cost'] = self.edgesnow[sl1][sl2]
+				if alter_paths[switchm][switch1][switch2]['path'+str(spath)]['cost'] < self.edgesnow[sl1][sl2]:
+				    alter_paths[switchm][switch1][switch2]['path'+str(spath)]['cost'] = self.edgesnow[sl1][sl2]
