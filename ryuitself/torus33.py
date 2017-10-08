@@ -3,7 +3,7 @@ from mininet.cli import CLI
 from mininet.net import Mininet
 from mininet.node import RemoteController
 from mininet.term import makeTerm
-
+import time
 
 if '__main__' == __name__:
 	#create net with a remote controller
@@ -64,6 +64,15 @@ if '__main__' == __name__:
 	net.build()
 	net.start()
 	#net.startTerms()
+        s1.cmd("sudo ovs-vsctl set bridge s1 protocols=OpenFlow13")
+        s2.cmd("sudo ovs-vsctl set bridge s2 protocols=OpenFlow13")
+        s3.cmd("sudo ovs-vsctl set bridge s3 protocols=OpenFlow13")
+        s4.cmd("sudo ovs-vsctl set bridge s4 protocols=OpenFlow13")
+        s5.cmd("sudo ovs-vsctl set bridge s5 protocols=OpenFlow13")
+        s6.cmd("sudo ovs-vsctl set bridge s6 protocols=OpenFlow13")
+        s7.cmd("sudo ovs-vsctl set bridge s7 protocols=OpenFlow13")
+        s8.cmd("sudo ovs-vsctl set bridge s8 protocols=OpenFlow13")
+        s9.cmd("sudo ovs-vsctl set bridge s9 protocols=OpenFlow13")
         print("\n\n\nNetwork Topology is Ready...\n\n\n")
         #ch = input("Input Number key to continue...")
         try:
@@ -80,6 +89,7 @@ if '__main__' == __name__:
 	h7.cmd('../ditg/bin/ITGRecv -l rec_log7 &')
 	h8.cmd('../ditg/bin/ITGRecv -l rec_log8 &')
 	h9.cmd('../ditg/bin/ITGRecv -l rec_log9 &')
+        time.sleep(3)
 	#sender
 	h1.cmd('../ditg/bin/ITGSend ./script_file &')
         h2.cmd('../ditg/bin/ITGSend ./script_file &')

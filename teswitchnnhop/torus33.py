@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import time
 from mininet.cli import CLI
 from mininet.net import Mininet
 from mininet.node import RemoteController
@@ -90,6 +91,7 @@ if '__main__' == __name__:
 	h7.cmd('../ditg/bin/ITGRecv -l rec_log7 &')
 	h8.cmd('../ditg/bin/ITGRecv -l rec_log8 &')
 	h9.cmd('../ditg/bin/ITGRecv -l rec_log9 &')
+        time.sleep(3)
 	#sender
 	h1.cmd('../ditg/bin/ITGSend ./script_file &')
         h2.cmd('../ditg/bin/ITGSend ./script_file &')

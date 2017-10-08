@@ -60,6 +60,7 @@ class MyTopo( Topo ):
         self.addLink(s7, s8)
         self.addLink(s7, s9)
         self.addLink(s8, s9)
+        import pdb;pdb.set_trace()
 	#reciver
         h1.cmd('./ditg/bin/ITGRecv -l rec_custom_log1 &')
         h2.cmd('./ditg/bin/ITGRecv -l rec_custom_log2 &')

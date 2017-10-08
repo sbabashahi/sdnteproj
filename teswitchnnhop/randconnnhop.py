@@ -413,7 +413,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 		self._request_stats(dp)
             if round == 0:
 	        round = 1
-                hub.sleep(10)
+                hub.sleep(13)
             else:
                 hub.sleep(5)
     
@@ -468,11 +468,14 @@ class SimpleSwitch13(app_manager.RyuApp):
 	       switch_traffic[sw] = switch_traffic_now[sw] - switch_traffic_back[sw]
 	       switch_traffic_back[sw] = switch_traffic_now[sw]
 	    switch = self.max_switch()
-	    self.check_links(switch)
-	    self.add_alter_links(switch)
-	    print('removed switch is',switch) 
-	    self.rebuildnet()
-	    self.rmswitch(switch)
+            if switch != 0:
+                self.check_links(switch)
+                self.add_alter_links(switch)
+                print('removed switch is',switch) 
+                self.rebuildnet()
+                self.rmswitch(switch)
+            else:
+                print('Flow is over....')
 	    #from pprint import pprint; pprint(self.path) 
 	    paths_to_change = []
 	       
@@ -491,6 +494,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 
     def max_switch(self):
         sw_max = 0
+        switch = 0
         for sw in switch_traffic:
             if switch_traffic[sw] > sw_max:
                 sw_max = switch_traffic[sw]

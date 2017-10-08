@@ -412,7 +412,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 		self._request_stats(dp)
             if round == 0:
 	        round = 1
-                hub.sleep(10)
+                hub.sleep(13)
             else:
                 hub.sleep(5)
     
@@ -562,7 +562,7 @@ class SimpleSwitch13(app_manager.RyuApp):
                    item = path.index(switch)
                    #min_cost = alter_paths[switch][path[item-1]][path[item+1]]['path1']['cost']
                    len_path = len(alter_paths[switch][path[item-1]][path[item+1]]['path1']['path'])
-	           min_path = alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['path']
+	           min_path = alter_paths[switch][path[item-1]][path[item+1]]['path1']['path']
                    for spath in range(2, len(alter_paths[switch][path[item-1]][path[item+1]])+1):
                        if len_path > len(alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['path']):
 			   min_path = alter_paths[switch][path[item-1]][path[item+1]]['path'+str(spath)]['path']

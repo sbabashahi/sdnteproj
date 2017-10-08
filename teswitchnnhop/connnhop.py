@@ -412,7 +412,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 		self._request_stats(dp)
             if round == 0:
 	        round = 1
-                hub.sleep(10)
+                hub.sleep(13)
             else:
                 hub.sleep(5)
     
