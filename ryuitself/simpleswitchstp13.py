@@ -10,6 +10,7 @@ from ryu.lib.packet import ethernet
 from ryu.app import simpleswitch13
 
 
+connect_counter = 0
 class SimpleSwitch13(simpleswitch13.SimpleSwitch13):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     _CONTEXTS = {'stplib': stplib.Stp}
@@ -39,6 +40,9 @@ class SimpleSwitch13(simpleswitch13.SimpleSwitch13):
                 out_port=ofproto.OFPP_ANY, out_group=ofproto.OFPG_ANY,
                 priority=1, match=match)
             datapath.send_msg(mod)
+            global connect_counter
+            connect_counter += 1
+            print('Now', connect_counter)
 
     @set_ev_cls(stplib.EventPacketIn, MAIN_DISPATCHER)
     def _packet_in_handler(self, ev):
@@ -71,6 +75,9 @@ class SimpleSwitch13(simpleswitch13.SimpleSwitch13):
         out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
                                   in_port=in_port, actions=actions, data=data)
         datapath.send_msg(out)
+        global connect_counter
+        connect_counter += 1
+        print('Now', connect_counter)
 
     @set_ev_cls(stplib.EventTopologyChange, MAIN_DISPATCHER)
     def _topology_change_handler(self, ev):

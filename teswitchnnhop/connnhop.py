@@ -1,3 +1,4 @@
+connect = 0
 #class that used in dijkstra
 class priorityDictionary(dict):
     def __init__(self):
@@ -376,6 +377,9 @@ class SimpleSwitch13(app_manager.RyuApp):
         else:
             mod = parser.OFPFlowMod(command=ofproto.OFPFC_ADD, datapath=datapath, priority=priority, match=match, hard_timeout=time, instructions=inst)	#create rule when packet not bufferd
         datapath.send_msg(mod)	#send the rule to switch
+        global connect
+        connect += 1
+        print('Now', connect)
 
     ##remove flow from switch flow table
     def rem_flow(self, datapath, priority, match, actions, port = 0):
@@ -387,6 +391,9 @@ class SimpleSwitch13(app_manager.RyuApp):
         inst = []
         mod = parser.OFPFlowMod(command=ofproto.OFPFC_DELETE, datapath=datapath, priority=priority, out_port=port, match=match, out_group=ofproto.OFPG_ANY, instructions=inst)
         datapath.send_msg(mod)
+        global connect
+        connect += 1
+        print('Now', connect)
 
 
     ##manage the packet in event if a packet haven't matched to any rule
@@ -408,13 +415,13 @@ class SimpleSwitch13(app_manager.RyuApp):
     def _monitor(self):		#request for statical information every 10 sec
         round = 0
 	while True:
-            for dp in self.switchdic.values():
-		self._request_stats(dp)
             if round == 0:
 	        round = 1
-                hub.sleep(13)
+                hub.sleep(10)
             else:
                 hub.sleep(5)
+            for dp in self.switchdic.values():
+		self._request_stats(dp)
     
     def rebuildnet(self):
 	for sw in self.switchdic:
@@ -441,9 +448,15 @@ class SimpleSwitch13(app_manager.RyuApp):
         ###Port Stat Req
     	req = parser.OFPPortStatsRequest(datapath, 0, ofproto.OFPP_ANY)
         datapath.send_msg(req)
+        global connect
+        connect += 1
+        print('Now', connect)
     	###Flow Stat Req
     	req = parser.OFPFlowStatsRequest(datapath)
     	datapath.send_msg(req)
+        global connect
+        connect += 1
+        print('Now', connect)
 
 
     def findNextHop(self, host, port):

@@ -409,13 +409,13 @@ class SimpleSwitch13(app_manager.RyuApp):
     def _monitor(self):		#request for statical information every 10 sec
         round = 0
 	while True:
-            for dp in self.switchdic.values():
-		self._request_stats(dp)
             if round == 0:
 	        round = 1
-                hub.sleep(13)
+                hub.sleep(10)
             else:
                 hub.sleep(5)
+            for dp in self.switchdic.values():
+		self._request_stats(dp)
     
     def rebuildnet(self):
 	for sw in self.switchdic:
